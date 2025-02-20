@@ -1,6 +1,13 @@
-# TutorialCrashCourse
+# Tutorial - Crash Course
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+
+Tutorial from [Code With Ahsan](https://www.youtube.com/watch?v=oUmVFHlwZsI)
+
+## Basics
+
+- `npm start`: dev server
+- `ng generate component component-name` or `ng g c component-name` to create components. Also possible: `ng g c folder-name/component-name`
 
 ## Development server
 
