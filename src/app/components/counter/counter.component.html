@@ -1,3 +1,23 @@
 <section class="content">
   <h2>Counter & Data update</h2>
+  <p>
+    This is a very simple example of using "update" & "set" to modify the state
+    of a variable initialized with "signal".
+  </p>
+
+  <div class="counter">
+    <p>Counter: {{ counter() }}</p>
+
+    <div class="buttons">
+      <button class="btn" (click)="decrement()" [disabled]="counter() <= 0">
+        Decrease
+      </button>
+      <button class="btn" (click)="reset()" [disabled]="counter() <= 0">
+        Reset
+      </button>
+      <button class="btn" (click)="increment()" [disabled]="counter() >= 10">
+        Increase
+      </button>
+    </div>
+  </div>
 </section>
