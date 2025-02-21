@@ -1,11 +1,21 @@
 <header>
-  <p class="main-title">{{ title() }}</p>
+  <p class="main-title">
+    <a routerLink="/">{{ title() }}</a>
+  </p>
 
   <nav>
-    <ul>
-      <li>Item1</li>
-      <li>Item2</li>
-      <li>Item3</li>
-    </ul>
+    <a
+      routerLink="/"
+      routerLinkActive="active-page"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+      >Home</a
+    >
+    <a
+      routerLink="/todos"
+      routerLinkActive="active-page"
+      ariaCurrentWhenActive="page"
+      >Todos</a
+    >
   </nav>
 </header>
