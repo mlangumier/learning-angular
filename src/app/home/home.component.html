@@ -1,1 +1,14 @@
-<p>home works!</p>
+<section class="content">
+  <h1>Homepage</h1>
+  <p>
+    This is the home page, with differents components that each explain the
+    basics of Angular 118+.
+  </p>
+</section>
+
+<!--* Pass data to the children (using Signals) -->
+<app-data-biding [message]="welcomeMessage()" />
+
+<app-event-listener />
+
+<app-counter />

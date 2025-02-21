@@ -1,0 +1,16 @@
+<section class="content">
+  <h2>Event Listener</h2>
+
+  <!--* Event to get key pressing event -->
+  <fieldset>
+    <label for="keyListener">Key Press Event Listener</label>
+    <input
+      type="text"
+      id="keyListener"
+      name="keyListener"
+      placeholder="Type here..."
+      (keyup)="keyUpHandler($event)"
+    />
+    <p>{{ keyInfo() || "(Press a key)" }}</p>
+  </fieldset>
+</section>
