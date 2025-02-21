@@ -9,6 +9,10 @@ Tutorial from [Code With Ahsan](https://www.youtube.com/watch?v=oUmVFHlwZsI)
 - `npm start`: dev server
 - `ng generate component component-name` or `ng g c component-name` to create components. Also possible: `ng g c folder-name/component-name`
 
+### Data-binding
+
+How to pass data from the TS file to the HTML file, such as using variables and `signals` (new feature).
+
 ## Development server
 
 To start a local development server, run:
