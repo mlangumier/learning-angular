@@ -32,3 +32,20 @@ Example: `<input (keyup)="keyUpHandler($event)" />`
 
 Setup routes in `app.routes.ts` to use the `<router-outlet />` to create a SPA.
 Check the `header` component for info on setting up `routerLink` to navigate though the application & `routerActiveLink` to display the current active page.
+
+## Services
+
+Used to make HTTP calls and processing data.
+
+- `ng g service services/my-service` -> create files, with the name `my-service.service` (convention).
+
+A **service** can either be provided to the specific components it's imported in using `providers` in the component and removing the `providedIn: 'root'` option from the service, or can be accessible everywhere using by default.
+
+In the components, using `ngOnInit` allows the data to be fetched on load and have suspense + fallbacks, and using `signal()` makes it easier to initialize and update the variables that get the data.
+
+## HTTP calls
+
+For that, we'll use the `httpClient()`.
+We can use the `environments` folder to store our urls and call the variables in our HTTP calls.
+
+## Directives
