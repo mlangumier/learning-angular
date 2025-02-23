@@ -1,0 +1,22 @@
+<section class="content">
+  <h1>Todos</h1>
+  <p>
+    This is the Todos page, where we'll manage a Todos list and some dynamic
+    features.
+  </p>
+</section>
+
+<section class="content">
+  <h3>Todos List</h3>
+
+  <ul class="todos">
+    @for (todo of todoItems(); track todo.id) {
+    <li class="todos__item">
+      <p>{{ todo.id }}</p>
+      <p>user#{{ todo.userId }}</p>
+      <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
+      <input type="checkbox" id="todo-{{ todo.id }}" [value]="todo.completed" />
+    </li>
+    }
+  </ul>
+</section>
