@@ -1,1 +1,15 @@
-<p>todo-item works!</p>
+<li
+  class="todos__item {{ todo().id % 2 === 0 ? 'odd' : 'even' }}"
+  appHighlightCompletedTodos
+  [isCompleted]="todo().completed"
+>
+  <!-- <p>{{ todo().id }}</p> -->
+  <!-- <p>user#{{ todo().userId }}</p> -->
+  <input
+    type="checkbox"
+    id="todo-{{ todo().id }}"
+    [checked]="todo().completed"
+    (change)="this.handleIsCompleted()"
+  />
+  <label for="todo-{{ todo().id }}">{{ todo().title }}</label>
+</li>

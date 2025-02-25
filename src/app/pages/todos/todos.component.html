@@ -7,16 +7,17 @@
 </section>
 
 <section class="content">
-  <h3>Todos List</h3>
-
+  @if (status() === "loading") {
+  <p>Loading...</p>
+  } @else if (status() === "idle") {
+  <p>(No todo in list)</p>
+  } @else if (status() === "error") {
+  <p>An error occured. Please try again.</p>
+  } @else if(status() === 'done') {
   <ul class="todos">
     @for (todo of todoItems(); track todo.id) {
-    <li class="todos__item">
-      <p>{{ todo.id }}</p>
-      <p>user#{{ todo.userId }}</p>
-      <label for="todo-{{ todo.id }}">{{ todo.title }}</label>
-      <input type="checkbox" id="todo-{{ todo.id }}" [value]="todo.completed" />
-    </li>
+    <app-todo-item (todoToggle)="updateTodoItem($event)" [todo]="todo" />
     }
   </ul>
+  }
 </section>

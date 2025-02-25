@@ -1,0 +1,15 @@
+.todos__item {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  grid-gap: 10px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
+  &.even {
+    background-color: var(--background);
+  }
+
+  p {
+    margin: 0;
+  }
+}
