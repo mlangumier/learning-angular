@@ -7,7 +7,7 @@
 
   --tertiary: oklch(50%, 0.5, 50);
 
-  --foreground: oklch(80%, 0.8, 0);
+  --foreground: oklch(10% 0.1 190);
   --background: oklch(95% 0 190);
 
   --border: oklch(65% 0 190);
@@ -43,7 +43,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100svh;
-  color: var(--text);
+  color: var(--foreground);
 }
 app-root {
   height: 100%;

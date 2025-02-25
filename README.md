@@ -18,10 +18,27 @@ Tips:
 
 ## Data-binding
 
+### Same component
+
 How to pass data from the TS file to the HTML file, such as using variables and `signals` (new feature, equivalent to React's state).
 
-- Pass data to children components: `<app--my-children-component [message]="welcomeMessage()" />`, then use `input()` in the children to get the data.
-- With `signal()`, use `.set()` & `.update()` to modify the state.
+With `signal()`, use `.set()` & `.update()` to modify the state.
+
+### Parent to Child component
+
+- From parent HTML: `<app-my-children-component [message]="welcomeMessage()" />`
+- To child: `message = input<string>();` or `message = input.required<string>();` if the component cannot be displayed without the parent's data.
+
+### Child to Parent component
+
+From child component, simply signal the parent that a change is required on some data:
+
+- Initialize a variable for the changing data: `toggleTodo = output<Todo>();`
+- Then use `emit()` to signal the parent that a change is required: `handleIsCompleted() { this.toggleTodo.emit(this.todo()); }`
+
+From the parent, get this `emit()` event (here, the event = changing the `todoItem`):
+`<app-todo-item (toggleTodo)="updateTodoItem($event)" />`
+Then update the data as usual.
 
 ## Events
 
@@ -49,3 +66,10 @@ For that, we'll use the `httpClient()`.
 We can use the `environments` folder to store our urls and call the variables in our HTTP calls.
 
 ## Directives
+
+Add additional behaviour to elements in our apps (ex: components, html attributes, structural, etc.)
+
+- `ng g directive directives/my-directive`
+
+Example 1: `NgIf` is a native directive that allows conditional rendering
+Example 2: to use our custom directive, we're using this `selector` (`appHighlightCompletedTodos`) directly inside the HTML of the component to modify for it to take effect.
