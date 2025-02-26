@@ -1,40 +1,36 @@
 import { catchError } from 'rxjs';
 
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { TodoItemComponent } from '../../components/todo-item/todo-item.component';
-import { FetchStatus } from '../../models/fetch-status.type';
 import { Todo } from '../../models/todo.type';
+import { FilterTodosPipe } from '../../pipes/filter-todos.pipe';
 import { TodosService } from '../../services/todos.service';
 
 @Component({
   selector: 'app-todos',
-  imports: [TodoItemComponent],
+  imports: [TodoItemComponent, FormsModule, FilterTodosPipe],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss',
 })
 export class TodosComponent implements OnInit {
   todoService = inject(TodosService);
   todoItems = signal<Todo[]>([]);
-  status = signal<FetchStatus>('idle');
+  searchTerm = signal<string>('');
 
   ngOnInit(): void {
-    this.status.set('loading');
-
     this.todoService
       .getTodos()
       .pipe(
         catchError((error) => {
           console.error(error);
-          this.status.set('error');
           return [];
         })
       )
       .subscribe((todos) => {
         this.todoItems.set(todos);
       });
-
-    this.status.set('done');
   }
 
   updateTodoItem(todoItem: Todo) {
@@ -47,5 +43,9 @@ export class TodosComponent implements OnInit {
         return todo;
       });
     });
+  }
+
+  resetSearch() {
+    this.searchTerm.set('');
   }
 }

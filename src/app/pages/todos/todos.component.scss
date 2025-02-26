@@ -1,0 +1,22 @@
+.search {
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  label {
+    min-width: fit-content;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+
+    &:focus {
+      border-color: var(--primary);
+    }
+  }
+}

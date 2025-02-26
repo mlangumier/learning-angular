@@ -73,3 +73,22 @@ Add additional behaviour to elements in our apps (ex: components, html attribute
 
 Example 1: `NgIf` is a native directive that allows conditional rendering
 Example 2: to use our custom directive, we're using this `selector` (`appHighlightCompletedTodos`) directly inside the HTML of the component to modify for it to take effect.
+
+## Pipes
+
+Allow use to transform data directly inside the HTML templates. They need to be imported inside the TS files first in order to be used inside the HTML files.
+
+Example of built-in pipes: AsyncPipe, CurrencyPipe, DatePipe, I18nPluralPipe, JsonPipe, UpperCasePipe, etc.
+(ex: `{{ todo().title | uppercase }}` )
+
+We can also create custom pipes. Here, we'll create a pipe that filters todos withing our list:
+
+- `ng g pipe pipes/filter-todos`
+
+Custom pipes use the `transform` method and require params (ex: todoList + searchTerm -> return a list of items containing the searched term).
+Pipes can be used on the `for` loop of the corresponding list to filter it directly:
+`@for (todo of todoItems() | filterTodos: searchTerm(); track todo.id) {}` -> `| filterTodo: searchTerm()` = our pipe & its param.
+
+## Form
+
+In order to use forms, we need to import the `FormsModule` inside our TS, then link our input to the corresponding variable using `ngModel`: `<input [(ngModel)]="searchTerm" />`
