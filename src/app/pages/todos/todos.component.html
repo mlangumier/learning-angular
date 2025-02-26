@@ -7,17 +7,29 @@
 </section>
 
 <section class="content">
-  @if (status() === "loading") {
-  <p>Loading...</p>
-  } @else if (status() === "idle") {
-  <p>(No todo in list)</p>
-  } @else if (status() === "error") {
-  <p>An error occured. Please try again.</p>
-  } @else if(status() === 'done') {
+  <form class="search">
+    <label for="search-term">Filter Todos:</label>
+    <input
+      [(ngModel)]="searchTerm"
+      name="search-term"
+      placeholder="Search todos..."
+    />
+    <button
+      type="button"
+      (click)="resetSearch()"
+      class="btn"
+      [disabled]="searchTerm() === ''"
+    >
+      Reset
+    </button>
+  </form>
+
   <ul class="todos">
-    @for (todo of todoItems(); track todo.id) {
+    @if (todoItems().length === 0) {
+    <p>Loading...</p>
+    } @else { @for (todo of todoItems() | filterTodos: searchTerm(); track
+    todo.id) {
     <app-todo-item (todoToggle)="updateTodoItem($event)" [todo]="todo" />
-    }
+    } }
   </ul>
-  }
 </section>
