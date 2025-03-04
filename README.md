@@ -24,6 +24,8 @@ How to pass data from the TS file to the HTML file, such as using variables and 
 
 With `signal()`, use `.set()` & `.update()` to modify the state.
 
+Can also use the `computed()` method for read-only computed expressions.
+
 ### Parent to Child component
 
 - From parent HTML: `<app-my-children-component [message]="welcomeMessage()" />`
@@ -92,3 +94,10 @@ Pipes can be used on the `for` loop of the corresponding list to filter it direc
 ## Form
 
 In order to use forms, we need to import the `FormsModule` inside our TS, then link our input to the corresponding variable using `ngModel`: `<input [(ngModel)]="searchTerm" />`
+
+## TODO
+
+- [ ] Install TailwindCSS 4 (see how install works & new features) & check [this issue](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/340#issuecomment-2610993624) for IntelliSense not working
+- [ ] Add common routes (404, redirect on wrong url, etc.)
+- [ ] Create shared components (buttons, inputs, etc.)
+- [ ] Continue learning Angular features

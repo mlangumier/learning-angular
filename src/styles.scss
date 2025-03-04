@@ -1,3 +1,5 @@
+@use "tailwindcss";
+
 :root {
   //* OKLCH(Lightness in %, Chroma in %, Hue in degrees / opacity in %)
 
@@ -5,7 +7,7 @@
   --primary-hover: oklch(40% 0.8 190);
   --primary-disabled: oklch(35% 0.05 190);
 
-  --tertiary: oklch(50%, 0.5, 50);
+  // --tertiary: oklch(50%, 0.5, 50);
 
   --foreground: oklch(10% 0.1 190);
   --background: oklch(95% 0 190);
